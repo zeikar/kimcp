@@ -9,7 +9,7 @@
 
 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction)를 활용하여 네이버와 같은 한국 API들을 LLM 애플리케이션에 원활하게 통합하는 MCP 서버입니다.
 
-![스크린샷](https://raw.githubusercontent.com/zeikar/kimcp/screenshots/screenshot-0.png)
+![스크린샷](screenshots/screenshot-0.png)
 
 ## Features
 

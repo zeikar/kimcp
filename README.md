@@ -9,7 +9,7 @@
 
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server implementation that seamlessly integrates Korean APIs into your LLM applications.
 
-![Screenshot](https://raw.githubusercontent.com/zeikar/kimcp/screenshots/screenshot-0.png)
+![Screenshot](screenshots/screenshot-0.png)
 
 ## Features
 
