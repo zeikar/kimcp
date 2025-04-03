@@ -14,6 +14,12 @@ A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) s
 ## Features
 
 - **Naver Blog Search**: Search and retrieve blog content from Naver
+- **Naver News Search**: Search for news articles from Naver
+- **Naver Cafe Search**: Find articles from Naver Cafe communities
+- **Naver Knowledge iN Search**: Search Q&A articles from Naver Knowledge iN
+- **Naver Local Search**: Find information about local businesses and places
+- **Naver Image Search**: Search for images on Naver
+- **Naver Shopping Search**: Find products and compare prices on Naver Shopping
 - More features in development...
 
 ## Prerequisites
@@ -42,6 +48,9 @@ A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) s
    ```bash
    echo "NAVER_CLIENT_ID=your_naver_client_id" > .env
    echo "NAVER_CLIENT_SECRET=your_naver_client_secret" >> .env
+
+   # Optional: set if default uv Python version is too old
+   echo "UV_PYTHON=3.10" >> .env
    ```
 
 4. **Install to Claude Desktop**

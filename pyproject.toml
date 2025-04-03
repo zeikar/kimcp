@@ -1,10 +1,22 @@
 [project]
 name = "kimcp"
 version = "0.1.0"
-description = "Add your description here"
+description = "Korea-integrated Model Context Protocol server implementation for seamless integration of Korean APIs into LLM applications"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "httpx>=0.28.1",
     "mcp[cli]>=1.6.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/zeikar/kimcp"
+Repository = "https://github.com/zeikar/kimcp"
+
+[project.authors]
+[project.authors.zeikar]
+name = "zeikar"
+email = "zeikar.dev@gmail.com"
+
+[project.license]
+text = "MIT"

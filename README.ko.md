@@ -14,6 +14,12 @@
 ## Features
 
 - **네이버 블로그 검색**: 네이버에서 블로그 콘텐츠 검색
+- **네이버 뉴스 검색**: 네이버에서 뉴스 기사 검색
+- **네이버 카페 검색**: 네이버 카페 커뮤니티에서 게시물 검색
+- **네이버 지식iN 검색**: 네이버 지식iN에서 Q&A 게시물 검색
+- **네이버 지역 검색**: 지역 업체 및 장소 정보 검색
+- **네이버 이미지 검색**: 네이버에서 이미지 검색
+- **네이버 쇼핑 검색**: 네이버 쇼핑에서 상품 검색 및 가격 비교
 - 현재 개발 중...
 
 ## Prerequisites
@@ -42,6 +48,9 @@
    ```bash
    echo "NAVER_CLIENT_ID=your_naver_client_id" > .env
    echo "NAVER_CLIENT_SECRET=your_naver_client_secret" >> .env
+
+   # 선택 사항: 기본 uv Python 버전이 너무 오래된 경우 설정
+   echo "UV_PYTHON=3.10" >> .env
    ```
 
 4. **Claude Desktop에 설치**
