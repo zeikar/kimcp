@@ -1,4 +1,4 @@
-# KiMCP (한국 특화 Model Context Protocol)
+# KiMCP (Korea-integrated Model Context Protocol)
 
 ![](https://badge.mcpx.dev?type=server "MCP Server")
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
