@@ -22,6 +22,8 @@ KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduc
 - **네이버 지역 검색**: 지역 업체 및 장소 정보 검색
 - **네이버 이미지 검색**: 네이버에서 이미지 검색
 - **네이버 쇼핑 검색**: 네이버 쇼핑에서 상품 검색 및 가격 비교
+- **다음 블로그 검색**: 다음 블로그에서 블로그 콘텐츠 검색
+- **다음 카페 검색**: 다음 카페에서 게시물 검색
 - 현재 개발 중...
 
 ## Prerequisites
@@ -29,6 +31,7 @@ KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduc
 - [Claude Desktop](https://claude.ai/download)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python 패키지 관리자)
 - [네이버 API Key](https://developers.naver.com/apps/#/register)
+- [카카오 API Key](https://developers.kakao.com/console/app)
 
 ## Installation
 
@@ -47,13 +50,30 @@ KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduc
 
 3. **환경 변수 설정**
 
-   ```bash
-   echo "NAVER_CLIENT_ID=your_naver_client_id" > .env
-   echo "NAVER_CLIENT_SECRET=your_naver_client_secret" >> .env
+   프로젝트 루트에 제공된 `.env.example` 파일을 참고하여 `.env` 파일을 생성하세요:
 
-   # 선택 사항: 기본 uv Python 버전이 너무 오래된 경우 설정
-   echo "UV_PYTHON=3.10" >> .env
+   ```bash
+   # .env.example 파일을 .env로 복사
+   cp .env.example .env
+
+   # 생성된 .env 파일 편집
+   vi .env   # 또는 원하는 텍스트 에디터 사용
    ```
+
+   `.env` 파일에 다음과 같이 API 키를 입력하세요:
+
+   ```
+   NAVER_CLIENT_ID=your_naver_client_id
+   NAVER_CLIENT_SECRET=your_naver_client_secret
+   KAKAO_REST_API_KEY=your_kakao_rest_api_key
+   ```
+
+   > **참고**:
+   >
+   > - 네이버 API 키는 [네이버 개발자 센터](https://developers.naver.com/apps/#/register)에서 발급 받을 수 있습니다.
+   > - 카카오 API 키는 [카카오 Developers](https://developers.kakao.com/console/app)에서 발급 받을 수 있습니다.
+   > - 필요한 API만 사용하는 경우, 해당 API 키만 설정해도 됩니다.
+   >   - API 키를 입력하지 않으면 해당 MCP 도구가 자동으로 비활성화됩니다. 예를 들어, 네이버 API 키만 입력하고 카카오 API 키를 입력하지 않으면 네이버 관련 도구만 사용 가능합니다.
 
 4. **Claude Desktop에 설치**
 
@@ -74,7 +94,7 @@ uv run mcp dev main.py
 ## Roadmap
 
 - ✅ 네이버 API 통합
-- ⬜ 카카오 API 통합
+- ✅ 카카오 API 통합
 - ⬜ 기상청(KMA) 통합
 - 기타 등등
 
@@ -85,5 +105,8 @@ uv run mcp dev main.py
 ## Acknowledgements
 
 - [py-mcp-naver](https://github.com/pfldy2850/py-mcp-naver)
+- [MCP](https://modelcontextprotocol.io/introduction)
 - [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk)
 - [네이버 개발자 센터](https://developers.naver.com/main)
+- [카카오 Developers](https://developers.kakao.com/)
+- [Claude Desktop](https://claude.ai/download)
