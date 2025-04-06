@@ -8,7 +8,7 @@
   <a href="README.md">🇰🇷 한국어</a>
 </p>
 
-KiMCP is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server that seamlessly integrates Korean APIs—such as [Naver](http://www.naver.com/) and [Kakao](https://www.kakaocorp.com/)—into LLM applications.
+KiMCP is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server that enables the use of Korean APIs—such as [Naver](http://www.naver.com/), [Kakao](https://www.kakaocorp.com/), and [TMAP](https://www.tmapmobility.com/)—in LLM applications.
 
 <p align="center" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
   <img src="screenshots/screenshot-0.png" alt="Screenshot 1" style="width: 45%; height: auto; object-fit: contain;">
@@ -29,7 +29,7 @@ KiMCP is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introd
 - **Kakao Map Search**: Search for places and business information on Kakao Map
 - **Car Navigation**: Provide car navigation information using Kakao Map
 
-- More features in development...
+More features in development...
 
 ## Prerequisites
 
@@ -100,6 +100,7 @@ uv run mcp dev main.py
 
 - ✅ Naver API integration
 - ✅ Kakao API integration
+- ⬜ SK Open API integration
 - ⬜ Korea Meteorological Administration (KMA) integration
 - And more...
 

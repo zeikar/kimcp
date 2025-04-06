@@ -8,7 +8,7 @@
   <a href="README.md">🇰🇷 한국어</a>
 </p>
 
-KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction)를 활용하여 [네이버](http://www.naver.com/), [카카오](https://www.kakaocorp.com/)와 같은 한국 API들을 LLM 애플리케이션에서 사용할 수 있는 MCP 서버입니다.
+KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction)를 활용하여 [네이버](http://www.naver.com/), [카카오](https://www.kakaocorp.com/), [TMAP](https://www.tmapmobility.com/)과 같은 한국 API들을 LLM 애플리케이션에서 사용할 수 있는 MCP 서버입니다.
 
 <p align="center" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
   <img src="screenshots/screenshot-0.png" alt="스크린샷 1" style="width: 45%; height: auto; object-fit: contain;">
@@ -29,7 +29,7 @@ KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduc
 - **카카오맵 검색**: 카카오맵에서 장소 및 업체 정보 검색
 - **자동차 길찾기**: 카카오맵을 사용하여 자동차 길찾기 정보 제공
 
-- 현재 개발 중...
+현재 개발 중...
 
 ## Prerequisites
 
@@ -100,6 +100,7 @@ uv run mcp dev main.py
 
 - ✅ 네이버 API 통합
 - ✅ 카카오 API 통합
+- ⬜ SK Open API 통합
 - ⬜ 기상청(KMA) 통합
 - 기타 등등
 
