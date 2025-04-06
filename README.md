@@ -24,6 +24,8 @@ KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduc
 - **네이버 쇼핑 검색**: 네이버 쇼핑에서 상품 검색 및 가격 비교
 - **다음 블로그 검색**: 다음 블로그에서 블로그 콘텐츠 검색
 - **다음 카페 검색**: 다음 카페에서 게시물 검색
+- **카카오맵 검색**: 카카오맵에서 장소 및 업체 정보 검색
+
 - 현재 개발 중...
 
 ## Prerequisites

@@ -72,3 +72,33 @@ async def search_daum_cafe(
         )
 
     return response.json()
+
+# https://developers.kakao.com/docs/latest/ko/local/dev-guide
+
+
+async def search_kakao_local(
+    query: str,
+    page: int = 1,
+    size: int = 15,
+):
+    """
+    Search for local places on Daum
+
+    Args:
+        query (str): Search query string.
+        page (int, optional): Page number for search results. Range: 1-45. Defaults to 1.
+        size (int, optional): Number of results per page. Range: 1-15. Defaults to 10.
+    """
+
+    async with httpx.AsyncClient() as client:
+        response = await client.get(
+            f"{API_ENDPOINT}/local/search/keyword.json",
+            headers=API_HEADERS,
+            params={
+                "query": query,
+                "page": page,
+                "size": size,
+            },
+        )
+
+    return response.json()

@@ -24,6 +24,8 @@ KiMCP is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introd
 - **Naver Shopping Search**: Find products and compare prices on Naver Shopping
 - **Daum Blog Search**: Search and retrieve blog content from Daum
 - **Daum Cafe Search**: Find articles from Daum Cafe communities
+- **Kakao Map Search**: Search for places and business information on Kakao Map
+
 - More features in development...
 
 ## Prerequisites
