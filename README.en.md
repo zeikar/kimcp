@@ -10,12 +10,14 @@
 
 KiMCP is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server that seamlessly integrates Korean APIs—such as [Naver](http://www.naver.com/) and [Kakao](https://www.kakaocorp.com/)—into LLM applications.
 
-![Screenshot](screenshots/screenshot-0.png)
+<p align="center" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+  <img src="screenshots/screenshot-0.png" alt="Screenshot 1" style="width: 45%; height: auto; object-fit: contain;">
+  <img src="screenshots/screenshot-1.png" alt="Screenshot 2" style="width: 45%; height: auto; object-fit: contain;">
+</p>
 
 ## Features
 
 - **Naver Blog Search**: Search and retrieve blog content from Naver
-  - **Naver Blog Detail View**: Get detailed content from blog posts
 - **Naver News Search**: Search for news articles from Naver
 - **Naver Cafe Search**: Find articles from Naver Cafe communities
 - **Naver Knowledge iN Search**: Search Q&A articles from Naver Knowledge iN
@@ -25,6 +27,7 @@ KiMCP is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introd
 - **Daum Blog Search**: Search and retrieve blog content from Daum
 - **Daum Cafe Search**: Find articles from Daum Cafe communities
 - **Kakao Map Search**: Search for places and business information on Kakao Map
+- **Car Navigation**: Provide car navigation information using Kakao Map
 
 - More features in development...
 

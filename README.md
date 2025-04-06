@@ -10,12 +10,14 @@
 
 KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction)를 활용하여 [네이버](http://www.naver.com/), [카카오](https://www.kakaocorp.com/)와 같은 한국 API들을 LLM 애플리케이션에서 사용할 수 있는 MCP 서버입니다.
 
-![스크린샷](screenshots/screenshot-0.png)
+<p align="center" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+  <img src="screenshots/screenshot-0.png" alt="스크린샷 1" style="width: 45%; height: auto; object-fit: contain;">
+  <img src="screenshots/screenshot-1.png" alt="스크린샷 2" style="width: 45%; height: auto; object-fit: contain;">
+</p>
 
 ## Features
 
 - **네이버 블로그 검색**: 네이버에서 블로그 콘텐츠 검색
-  - **네이버 블로그 글 상세 보기**: 블로그 글의 상세 내용을 가져옴
 - **네이버 뉴스 검색**: 네이버에서 뉴스 기사 검색
 - **네이버 카페 검색**: 네이버 카페 커뮤니티에서 게시물 검색
 - **네이버 지식iN 검색**: 네이버 지식iN에서 Q&A 게시물 검색
@@ -25,6 +27,7 @@ KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduc
 - **다음 블로그 검색**: 다음 블로그에서 블로그 콘텐츠 검색
 - **다음 카페 검색**: 다음 카페에서 게시물 검색
 - **카카오맵 검색**: 카카오맵에서 장소 및 업체 정보 검색
+- **자동차 길찾기**: 카카오맵을 사용하여 자동차 길찾기 정보 제공
 
 - 현재 개발 중...
 
