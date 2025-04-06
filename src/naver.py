@@ -22,7 +22,7 @@ async def get_naver_blog_details_link(link: str) -> str:
     Returns:
         str: The full content of the webpage with HTML tags removed.
     """
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(follow_redirects=True) as client:
         # To mobile page
         if "https://blog.naver.com" in link:
             link = link.replace("blog.naver.com", "m.blog.naver.com")
