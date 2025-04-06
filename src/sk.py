@@ -53,17 +53,29 @@ async def search_transit_route_detail(
     result = response.json()
 
     # Remove specific fields from plan.legs to reduce response size
-
     if "metaData" in result and "plan" in result["metaData"] and "itineraries" in result["metaData"]["plan"]:
         for itinerary in result["metaData"]["plan"]["itineraries"]:
+            if "totalWalkTime" in itinerary:
+                del itinerary["totalWalkTime"]
+            if "totalWalkDistance" in itinerary:
+                del itinerary["totalWalkDistance"]
+
             if "legs" in itinerary:
                 for leg in itinerary["legs"]:
-                    if "steps" in leg:
-                        del leg["steps"]
-                    if "passShape" in leg:
-                        del leg["passShape"]
-                    if "passStopList" in leg:
-                        del leg["passStopList"]
+                    for key in [
+                        "steps", "passShape", "passStopList",
+                        "routeColor", "routeId", "service", "type", "lane", "Lane",
+                        "distance", "startTime", "endTime", "startLocation", "endLocation"
+                    ]:
+                        leg.pop(key, None)
+
+                    for loc in ["start", "end"]:
+                        if loc in leg and isinstance(leg[loc], dict):
+                            leg[loc].pop("lat", None)
+                            leg[loc].pop("lon", None)
+
+    if "requestParameters" in result.get("metaData", {}):
+        del result["metaData"]["requestParameters"]
 
     return result
 
