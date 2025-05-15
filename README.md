@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/zeikar-kimcp-badge.png)](https://mseep.ai/app/zeikar-kimcp)
+
 # KiMCP (Korea-integrated Model Context Protocol)
 
 ![](https://badge.mcpx.dev?type=server "MCP Server")
