@@ -102,6 +102,14 @@ KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduc
 uv run mcp dev main.py
 ```
 
+테스트 실행:
+
+```bash
+uv run pytest
+```
+
+네이버 API 실제 호출 테스트는 `NAVER_CLIENT_ID`, `NAVER_CLIENT_SECRET` 환경 변수가 설정돼 있을 때만 실행됩니다. `.env`의 키로 실행하려면 `uv run --env-file .env pytest`를 사용하세요.
+
 ## Roadmap
 
 - ✅ 네이버 API 통합

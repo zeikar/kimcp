@@ -100,6 +100,14 @@ Run the MCP inspector for testing and development:
 uv run mcp dev main.py
 ```
 
+Run the tests:
+
+```bash
+uv run pytest
+```
+
+The live Naver API test runs only when `NAVER_CLIENT_ID` and `NAVER_CLIENT_SECRET` are set in the environment. To run it with the keys in `.env`, use `uv run --env-file .env pytest`.
+
 ## Roadmap
 
 - ✅ Naver API integration
