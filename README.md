@@ -82,7 +82,7 @@ KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduc
    >
    > - 네이버 API 키는 [네이버 개발자 센터](https://developers.naver.com/apps/#/register)에서 발급 받을 수 있습니다.
    > - 카카오 API 키는 [카카오 Developers](https://developers.kakao.com/console/app)에서 발급 받을 수 있습니다.
-   > - TMAP (SK Open API) 키는 [SK Open API](https://openapi.sk.com/)에서 발급 받을 수 있습니다.
+   > - TMAP (SK Open API) 키는 [SK Open API](https://openapi.sk.com/)에서 발급 받을 수 있습니다. 대중교통 길찾기를 쓰려면 키를 발급한 앱에서 [대중교통 API 사용 신청](https://openapi.sk.com/products/calc?svcSeq=59&menuSeq=393)도 해야 합니다.
    > - 필요한 API만 사용하는 경우, **해당 API 키만 설정**해도 됩니다.
    >   - API 키를 입력하지 않으면 **해당 MCP 도구가 자동으로 비활성화**됩니다. 예를 들어, 네이버 API 키만 입력하고 카카오 API 키를 입력하지 않으면 네이버 관련 도구만 사용 가능합니다.
 

@@ -80,7 +80,7 @@ More features in development...
    >
    > - You can obtain Naver API keys from the [Naver Developer Center](https://developers.naver.com/apps/#/register).
    > - You can obtain Kakao API keys from [Kakao Developers](https://developers.kakao.com/console/app).
-   > - You can obtain SK Open API keys from [SK Open API](https://openapi.sk.com/).
+   > - You can obtain SK Open API keys from [SK Open API](https://openapi.sk.com/). For transit navigation, also [apply for the Transit API](https://openapi.sk.com/products/calc?svcSeq=59&menuSeq=393) in the app that issued the key.
    > - If you only need to use certain APIs, you only need to set up the corresponding API keys.
    >   - MCP tools will be automatically disabled if their API keys are not provided. For example, if you only provide Naver API keys and not Kakao API keys, only Naver-related tools will be available.
 
