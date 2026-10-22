@@ -109,7 +109,7 @@ async def search_kakao_local(
     raise_for_status(response)
     return response.json()
 
-# https://developers.kakaomobility.com/docs/navi-api/directions/
+# https://developers.kakaomobility.com/guide/navi-api/directions.html
 
 
 async def search_car_directions(

@@ -37,9 +37,7 @@ KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduc
 
 - [Claude Desktop](https://claude.ai/download)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python 패키지 관리자)
-- [네이버 API Key](https://www.ncloud.com/product/applicationService/naverApiHub) (NAVER Cloud Platform의 NAVER API HUB)
-- [카카오 API Key](https://developers.kakao.com/console/app)
-- [SK Open API Key](https://openapi.sk.com/)
+- 사용할 서비스의 API 키 (네이버, 카카오, SK Open API): [API 키 발급 가이드](docs/api-keys.md) 참고
 
 ## Installation
 
@@ -79,9 +77,7 @@ KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduc
 
    > **참고**:
    >
-   > - 네이버 API 키는 NAVER Cloud Platform의 [NAVER API HUB](https://guide.ncloud-docs.com/docs/apihub-application)에서 발급 받을 수 있습니다. Application을 등록할 때 블로그, 뉴스, 카페, 지식iN, 지역, 이미지 검색 API를 선택하고, Application 목록의 [인증 정보]에서 Client ID와 Client Secret을 복사하세요. 네이버 개발자 센터에서 발급한 키는 사용할 수 없습니다.
-   > - 카카오 API 키는 [카카오 Developers](https://developers.kakao.com/console/app)에서 발급 받을 수 있습니다.
-   > - TMAP (SK Open API) 키는 [SK Open API](https://openapi.sk.com/)에서 발급 받을 수 있습니다. 대중교통 길찾기를 쓰려면 키를 발급한 앱에서 [대중교통 API 사용 신청](https://openapi.sk.com/products/calc?svcSeq=59&menuSeq=393)도 해야 합니다.
+   > - 서비스별 키 발급 방법은 [API 키 발급 가이드](docs/api-keys.md)를 참고하세요.
    > - 필요한 API만 사용하는 경우, **해당 API 키만 설정**해도 됩니다.
    >   - API 키를 입력하지 않으면 **해당 MCP 도구가 자동으로 비활성화**됩니다. 예를 들어, 네이버 API 키만 입력하고 카카오 API 키를 입력하지 않으면 네이버 관련 도구만 사용 가능합니다.
 

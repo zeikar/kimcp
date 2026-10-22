@@ -35,9 +35,7 @@ More features in development...
 
 - [Claude Desktop](https://claude.ai/download)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python Package Manager)
-- [Naver API Key](https://www.ncloud.com/product/applicationService/naverApiHub) (NAVER API HUB on NAVER Cloud Platform)
-- [Kakao API Key](https://developers.kakao.com/console/app)
-- [SK Open API Key](https://openapi.sk.com/)
+- API keys for the services you use (Naver, Kakao, SK Open API): see the [API key guide](docs/api-keys.en.md)
 
 ## Installation
 
@@ -77,9 +75,7 @@ More features in development...
 
    > **Note**:
    >
-   > - You can obtain Naver API keys from [NAVER API HUB](https://guide.ncloud-docs.com/docs/apihub-application) on NAVER Cloud Platform. When registering the Application, select the blog, news, cafe, Knowledge iN, local, and image search APIs, then copy the Client ID and Client Secret from [인증 정보] (credentials) in the Application list. Keys issued by the Naver Developer Center don't work.
-   > - You can obtain Kakao API keys from [Kakao Developers](https://developers.kakao.com/console/app).
-   > - You can obtain SK Open API keys from [SK Open API](https://openapi.sk.com/). For transit navigation, also [apply for the Transit API](https://openapi.sk.com/products/calc?svcSeq=59&menuSeq=393) in the app that issued the key.
+   > - See the [API key guide](docs/api-keys.en.md) for how to get each service's keys.
    > - If you only need to use certain APIs, you only need to set up the corresponding API keys.
    >   - MCP tools will be automatically disabled if their API keys are not provided. For example, if you only provide Naver API keys and not Kakao API keys, only Naver-related tools will be available.
 
