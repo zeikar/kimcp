@@ -23,7 +23,6 @@ KiMCP is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introd
 - **Naver Knowledge iN Search**: Search Q&A articles from Naver Knowledge iN
 - **Naver Local Search**: Find information about local businesses and places
 - **Naver Image Search**: Search for images on Naver
-- **Naver Shopping Search**: Find products and compare prices on Naver Shopping
 - **Daum Blog Search**: Search and retrieve blog content from Daum
 - **Daum Cafe Search**: Find articles from Daum Cafe communities
 - **Kakao Map Search**: Search for places and business information on Kakao Map
@@ -36,7 +35,7 @@ More features in development...
 
 - [Claude Desktop](https://claude.ai/download)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python Package Manager)
-- [Naver API Key](https://developers.naver.com/apps/#/register)
+- [Naver API Key](https://www.ncloud.com/product/applicationService/naverApiHub) (NAVER API HUB on NAVER Cloud Platform)
 - [Kakao API Key](https://developers.kakao.com/console/app)
 - [SK Open API Key](https://openapi.sk.com/)
 
@@ -78,7 +77,7 @@ More features in development...
 
    > **Note**:
    >
-   > - You can obtain Naver API keys from the [Naver Developer Center](https://developers.naver.com/apps/#/register).
+   > - You can obtain Naver API keys from [NAVER API HUB](https://guide.ncloud-docs.com/docs/apihub-application) on NAVER Cloud Platform. When registering the Application, select the blog, news, cafe, Knowledge iN, local, and image search APIs, then copy the Client ID and Client Secret from [인증 정보] (credentials) in the Application list. Keys issued by the Naver Developer Center don't work.
    > - You can obtain Kakao API keys from [Kakao Developers](https://developers.kakao.com/console/app).
    > - You can obtain SK Open API keys from [SK Open API](https://openapi.sk.com/). For transit navigation, also [apply for the Transit API](https://openapi.sk.com/products/calc?svcSeq=59&menuSeq=393) in the app that issued the key.
    > - If you only need to use certain APIs, you only need to set up the corresponding API keys.

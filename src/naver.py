@@ -3,14 +3,14 @@ from .config import NAVER_CLIENT_ID, NAVER_CLIENT_SECRET
 from .errors import raise_for_status
 
 # API endpoints
-API_ENDPOINT = "https://openapi.naver.com/v1"
+API_ENDPOINT = "https://naverapihub.apigw.ntruss.com/search/v1"
 
 API_HEADERS = {
-    "X-Naver-Client-Id": NAVER_CLIENT_ID,
-    "X-Naver-Client-Secret": NAVER_CLIENT_SECRET,
+    "X-NCP-APIGW-API-KEY-ID": NAVER_CLIENT_ID,
+    "X-NCP-APIGW-API-KEY": NAVER_CLIENT_SECRET,
 }
 
-# https://developers.naver.com/docs/serviceapi/search/blog/blog.md
+# https://api.ncloud-docs.com/docs/naver-api-hub-search-blog
 
 
 async def search_naver_blog(
@@ -31,7 +31,7 @@ async def search_naver_blog(
 
     async with httpx.AsyncClient() as client:
         response = await client.get(
-            f"{API_ENDPOINT}/search/blog.json",
+            f"{API_ENDPOINT}/blog",
             params={
                 "query": query,
                 "display": display,
@@ -44,7 +44,7 @@ async def search_naver_blog(
         raise_for_status(response)
         return response.text
 
-# https://developers.naver.com/docs/serviceapi/search/news/news.md
+# https://api.ncloud-docs.com/docs/naver-api-hub-search-news
 
 
 async def search_news(
@@ -65,7 +65,7 @@ async def search_news(
 
     async with httpx.AsyncClient() as client:
         response = await client.get(
-            f"{API_ENDPOINT}/search/news.json",
+            f"{API_ENDPOINT}/news",
             params={
                 "query": query,
                 "display": display,
@@ -78,7 +78,7 @@ async def search_news(
         raise_for_status(response)
         return response.text
 
-# https://developers.naver.com/docs/serviceapi/search/cafearticle/cafearticle.md
+# https://api.ncloud-docs.com/docs/naver-api-hub-search-cafearticle
 
 
 async def search_naver_cafe_article(
@@ -98,7 +98,7 @@ async def search_naver_cafe_article(
     """
     async with httpx.AsyncClient() as client:
         response = await client.get(
-            f"{API_ENDPOINT}/search/cafearticle.json",
+            f"{API_ENDPOINT}/cafearticle",
             params={
                 "query": query,
                 "display": display,
@@ -110,7 +110,7 @@ async def search_naver_cafe_article(
         raise_for_status(response)
         return response.text
 
-# https://developers.naver.com/docs/serviceapi/search/kin/kin.md
+# https://api.ncloud-docs.com/docs/naver-api-hub-search-kin
 
 
 async def search_kin(
@@ -131,7 +131,7 @@ async def search_kin(
 
     async with httpx.AsyncClient() as client:
         response = await client.get(
-            f"{API_ENDPOINT}/search/kin.json",
+            f"{API_ENDPOINT}/kin",
             params={
                 "query": query,
                 "display": display,
@@ -144,7 +144,7 @@ async def search_kin(
         raise_for_status(response)
         return response.text
 
-# https://developers.naver.com/docs/serviceapi/search/local/local.md
+# https://api.ncloud-docs.com/docs/naver-api-hub-search-local
 
 
 async def search_naver_local(
@@ -165,7 +165,7 @@ async def search_naver_local(
 
     async with httpx.AsyncClient() as client:
         response = await client.get(
-            f"{API_ENDPOINT}/search/local.json",
+            f"{API_ENDPOINT}/local",
             params={
                 "query": query,
                 "display": display,
@@ -178,7 +178,7 @@ async def search_naver_local(
         raise_for_status(response)
         return response.text
 
-# https://developers.naver.com/docs/serviceapi/search/image/image.md
+# https://api.ncloud-docs.com/docs/naver-api-hub-search-image
 
 
 async def search_naver_image(
@@ -201,56 +201,13 @@ async def search_naver_image(
 
     async with httpx.AsyncClient() as client:
         response = await client.get(
-            f"{API_ENDPOINT}/search/image.json",
+            f"{API_ENDPOINT}/image",
             params={
                 "query": query,
                 "display": display,
                 "start": start,
                 "sort": sort,
                 "filter": filter,
-            },
-            headers=API_HEADERS,
-        )
-
-        raise_for_status(response)
-        return response.text
-
-# https://developers.naver.com/docs/serviceapi/search/shopping/shopping.md
-
-
-async def search_shopping(
-    query: str,
-    display: int = 10,
-    start: int = 1,
-    sort: str = "sim",
-    filter: str = None,
-    exclude: str = None,
-):
-    """
-    Search for shopping items on Naver
-
-    Args:
-        query (str): Search query string.
-        display (int, optional): Number of results to return. Range: 1-100. Defaults to 10.
-        start (int, optional): Starting position for search results. Range: 1-1000. Defaults to 1.
-        sort (str, optional): Sort order. Options: "sim" (relevance), "date" (recent), "asc" (price ascending), "dsc" (price descending). Defaults to "sim".
-        filter (str, optional): Filter options. Options: None (all items), "naverpay" (Naver Pay items). Defaults to None.
-        exclude (str, optional): Exclude options as colon-separated values (e.g., exclude=used:cbshop). Defaults to None. Options:
-            - used: Used items
-            - rental: Rental items 
-            - cbshop: Overseas direct purchases and purchase agency items
-    """
-
-    async with httpx.AsyncClient() as client:
-        response = await client.get(
-            f"{API_ENDPOINT}/search/shop.json",
-            params={
-                "query": query,
-                "display": display,
-                "start": start,
-                "sort": sort,
-                "filter": filter,
-                "exclude": exclude,
             },
             headers=API_HEADERS,
         )

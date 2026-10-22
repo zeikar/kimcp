@@ -25,7 +25,6 @@ KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduc
 - **네이버 지식iN 검색**: 네이버 지식iN에서 Q&A 게시물 검색
 - **네이버 지역 검색**: 지역 업체 및 장소 정보 검색
 - **네이버 이미지 검색**: 네이버에서 이미지 검색
-- **네이버 쇼핑 검색**: 네이버 쇼핑에서 상품 검색 및 가격 비교
 - **다음 블로그 검색**: 다음 블로그에서 블로그 콘텐츠 검색
 - **다음 카페 검색**: 다음 카페에서 게시물 검색
 - **카카오맵 검색**: 카카오맵에서 장소 및 업체 정보 검색
@@ -38,7 +37,7 @@ KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduc
 
 - [Claude Desktop](https://claude.ai/download)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python 패키지 관리자)
-- [네이버 API Key](https://developers.naver.com/apps/#/register)
+- [네이버 API Key](https://www.ncloud.com/product/applicationService/naverApiHub) (NAVER Cloud Platform의 NAVER API HUB)
 - [카카오 API Key](https://developers.kakao.com/console/app)
 - [SK Open API Key](https://openapi.sk.com/)
 
@@ -80,7 +79,7 @@ KiMCP는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduc
 
    > **참고**:
    >
-   > - 네이버 API 키는 [네이버 개발자 센터](https://developers.naver.com/apps/#/register)에서 발급 받을 수 있습니다.
+   > - 네이버 API 키는 NAVER Cloud Platform의 [NAVER API HUB](https://guide.ncloud-docs.com/docs/apihub-application)에서 발급 받을 수 있습니다. Application을 등록할 때 블로그, 뉴스, 카페, 지식iN, 지역, 이미지 검색 API를 선택하고, Application 목록의 [인증 정보]에서 Client ID와 Client Secret을 복사하세요. 네이버 개발자 센터에서 발급한 키는 사용할 수 없습니다.
    > - 카카오 API 키는 [카카오 Developers](https://developers.kakao.com/console/app)에서 발급 받을 수 있습니다.
    > - TMAP (SK Open API) 키는 [SK Open API](https://openapi.sk.com/)에서 발급 받을 수 있습니다. 대중교통 길찾기를 쓰려면 키를 발급한 앱에서 [대중교통 API 사용 신청](https://openapi.sk.com/products/calc?svcSeq=59&menuSeq=393)도 해야 합니다.
    > - 필요한 API만 사용하는 경우, **해당 API 키만 설정**해도 됩니다.

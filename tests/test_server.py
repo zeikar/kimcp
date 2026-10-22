@@ -31,7 +31,6 @@ NAVER_TOOLS = {
     "search_kin": ["query", "display", "start", "sort"],
     "search_naver_local": ["query", "display", "start", "sort"],
     "search_naver_image": ["query", "display", "start", "sort", "filter"],
-    "search_shopping": ["query", "display", "start", "sort", "filter", "exclude"],
 }
 KAKAO_TOOLS = {
     "search_daum_blog": ["query", "sort", "page", "size"],
@@ -248,7 +247,6 @@ LIVE_CALLS = [
     ("search_kin", {"query": "칫솔", "display": 1}, '"items"'),
     ("search_naver_local", {"query": "강남역 카페"}, '"items"'),
     ("search_naver_image", {"query": "칫솔", "display": 1}, '"items"'),
-    ("search_shopping", {"query": "칫솔", "display": 1}, '"items"'),
     ("search_daum_blog", {"query": "칫솔", "size": 1}, '"documents"'),
     ("search_daum_cafe", {"query": "칫솔", "size": 1}, '"documents"'),
     ("search_kakao_local", {"query": "강남역", "size": 1}, '"documents"'),

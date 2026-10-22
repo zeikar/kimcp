@@ -1,6 +1,6 @@
 import sys
 from mcp.server.mcpserver import MCPServer
-from src.naver import search_naver_blog, search_naver_cafe_article, search_naver_image, search_kin, search_naver_local, search_news, search_shopping
+from src.naver import search_naver_blog, search_naver_cafe_article, search_naver_image, search_kin, search_naver_local, search_news
 from src.kakao import search_daum_blog, search_daum_cafe, search_kakao_local, search_car_directions
 from src.sk import search_transit_route, search_transit_route_detail
 from src.web import get_webpage_content
@@ -27,7 +27,6 @@ if NAVER_CLIENT_ID and NAVER_CLIENT_SECRET:
     add_tool(search_kin)
     add_tool(search_naver_local)
     add_tool(search_naver_image)
-    add_tool(search_shopping)
 else:
     print("Warning: Naver API credentials are not set. Naver API tools will not be available.", file=sys.stderr)
 
