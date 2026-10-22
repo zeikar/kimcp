@@ -106,7 +106,11 @@ Run the tests:
 uv run pytest
 ```
 
-The live Naver API test runs only when `NAVER_CLIENT_ID` and `NAVER_CLIENT_SECRET` are set in the environment. To run it with the keys in `.env`, use `uv run --env-file .env pytest`.
+The default tests don't call the real APIs. To call every tool against the real APIs with the keys in `.env`, run the live tests separately; tools whose API key isn't set are skipped.
+
+```bash
+uv run --env-file .env pytest -m live
+```
 
 ## Roadmap
 

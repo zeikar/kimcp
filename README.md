@@ -108,7 +108,11 @@ uv run mcp dev main.py
 uv run pytest
 ```
 
-네이버 API 실제 호출 테스트는 `NAVER_CLIENT_ID`, `NAVER_CLIENT_SECRET` 환경 변수가 설정돼 있을 때만 실행됩니다. `.env`의 키로 실행하려면 `uv run --env-file .env pytest`를 사용하세요.
+기본 테스트는 실제 API를 호출하지 않습니다. 전체 도구를 실제 API로 호출하는 테스트는 `.env`의 키로 따로 실행하세요. 키가 없는 API의 도구는 건너뜁니다.
+
+```bash
+uv run --env-file .env pytest -m live
+```
 
 ## Roadmap
 

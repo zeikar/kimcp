@@ -29,3 +29,5 @@ dev = [
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
+addopts = ["-m", "not live"]
+markers = ["live: calls the real APIs with your keys; run with uv run --env-file .env pytest -m live"]

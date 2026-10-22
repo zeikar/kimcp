@@ -235,12 +235,50 @@ def test_waypoint_limit_reaches_the_model(server):
     assert "Maximum 5 waypoints" in result["content"][0]["text"]
 
 
-@pytest.mark.skipif(
-    not (os.environ.get("NAVER_CLIENT_ID") and os.environ.get("NAVER_CLIENT_SECRET")),
-    reason="live test: run with NAVER_CLIENT_ID and NAVER_CLIENT_SECRET set (uv run --env-file .env pytest)",
-)
-def test_naver_blog_search_live(server):
-    keys = {k: os.environ[k] for k in ["NAVER_CLIENT_ID", "NAVER_CLIENT_SECRET"]}
-    result = server(keys).call("search_naver_blog", {"query": "칫솔", "display": 1})["result"]
-    assert not result.get("isError")
-    assert '"items"' in result["content"][0]["text"]
+GANGNAM = {"x": 127.0276, "y": 37.4979}
+CITY_HALL = {"x": 126.9780, "y": 37.5665}
+TRANSIT_ARGS = {"startX": GANGNAM["x"], "startY": GANGNAM["y"], "endX": CITY_HALL["x"], "endY": CITY_HALL["y"], "count": 1}
+
+# (tool, arguments, text a real successful response contains)
+LIVE_CALLS = [
+    ("get_webpage_content", {"link": "https://example.com"}, "Example Domain"),
+    ("search_naver_blog", {"query": "칫솔", "display": 1}, '"items"'),
+    ("search_news", {"query": "날씨", "display": 1}, '"items"'),
+    ("search_naver_cafe_article", {"query": "칫솔", "display": 1}, '"items"'),
+    ("search_kin", {"query": "칫솔", "display": 1}, '"items"'),
+    ("search_naver_local", {"query": "강남역 카페"}, '"items"'),
+    ("search_naver_image", {"query": "칫솔", "display": 1}, '"items"'),
+    ("search_shopping", {"query": "칫솔", "display": 1}, '"items"'),
+    ("search_daum_blog", {"query": "칫솔", "size": 1}, '"documents"'),
+    ("search_daum_cafe", {"query": "칫솔", "size": 1}, '"documents"'),
+    ("search_kakao_local", {"query": "강남역", "size": 1}, '"documents"'),
+    ("search_car_directions", {
+        "origin_x": GANGNAM["x"], "origin_y": GANGNAM["y"],
+        "destination_x": CITY_HALL["x"], "destination_y": CITY_HALL["y"],
+    }, '"result_code": 0'),
+    ("search_transit_route", TRANSIT_ARGS, '"itineraries"'),
+    ("search_transit_route_detail", TRANSIT_ARGS, '"itineraries"'),
+]
+TOOL_KEYS = {
+    **{tool: [] for tool in WEB_TOOLS},
+    **{tool: ["NAVER_CLIENT_ID", "NAVER_CLIENT_SECRET"] for tool in NAVER_TOOLS},
+    **{tool: ["KAKAO_REST_API_KEY"] for tool in KAKAO_TOOLS},
+    **{tool: ["SK_APP_KEY"] for tool in SK_TOOLS},
+}
+
+
+def test_live_calls_cover_every_tool():
+    assert sorted(tool for tool, _, _ in LIVE_CALLS) == sorted(TOOL_KEYS)
+
+
+@pytest.mark.live
+@pytest.mark.parametrize("tool, arguments, expected", LIVE_CALLS, ids=[c[0] for c in LIVE_CALLS])
+def test_tool_live(server, tool, arguments, expected):
+    missing = [k for k in TOOL_KEYS[tool] if not os.environ.get(k)]
+    if missing:
+        pytest.skip(f"{', '.join(missing)} not set")
+    keys = {k: os.environ[k] for k in TOOL_KEYS[tool]}
+    result = server(keys).call(tool, arguments)["result"]
+    text = result["content"][0]["text"]
+    assert not result.get("isError"), text[:500]
+    assert expected in text
