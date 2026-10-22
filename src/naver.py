@@ -1,5 +1,6 @@
 import httpx
 from .config import NAVER_CLIENT_ID, NAVER_CLIENT_SECRET
+from .errors import raise_for_status
 
 # API endpoints
 API_ENDPOINT = "https://openapi.naver.com/v1"
@@ -40,7 +41,7 @@ async def search_naver_blog(
             headers=API_HEADERS,
         )
 
-        response.raise_for_status()
+        raise_for_status(response)
         return response.text
 
 # https://developers.naver.com/docs/serviceapi/search/news/news.md
@@ -74,7 +75,7 @@ async def search_news(
             headers=API_HEADERS,
         )
 
-        response.raise_for_status()
+        raise_for_status(response)
         return response.text
 
 # https://developers.naver.com/docs/serviceapi/search/cafearticle/cafearticle.md
@@ -106,7 +107,7 @@ async def search_naver_cafe_article(
             },
             headers=API_HEADERS,
         )
-        response.raise_for_status()
+        raise_for_status(response)
         return response.text
 
 # https://developers.naver.com/docs/serviceapi/search/kin/kin.md
@@ -140,7 +141,7 @@ async def search_kin(
             headers=API_HEADERS,
         )
 
-        response.raise_for_status()
+        raise_for_status(response)
         return response.text
 
 # https://developers.naver.com/docs/serviceapi/search/local/local.md
@@ -174,7 +175,7 @@ async def search_naver_local(
             headers=API_HEADERS,
         )
 
-        response.raise_for_status()
+        raise_for_status(response)
         return response.text
 
 # https://developers.naver.com/docs/serviceapi/search/image/image.md
@@ -211,7 +212,7 @@ async def search_naver_image(
             headers=API_HEADERS,
         )
 
-        response.raise_for_status()
+        raise_for_status(response)
         return response.text
 
 # https://developers.naver.com/docs/serviceapi/search/shopping/shopping.md
@@ -254,5 +255,5 @@ async def search_shopping(
             headers=API_HEADERS,
         )
 
-        response.raise_for_status()
+        raise_for_status(response)
         return response.text

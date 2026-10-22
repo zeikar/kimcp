@@ -1,6 +1,7 @@
 import httpx
 from mcp.server.mcpserver.exceptions import ToolError
 from .config import KAKAO_REST_API_KEY
+from .errors import raise_for_status
 
 # API endpoints
 API_ENDPOINT = "https://dapi.kakao.com/v2"
@@ -42,6 +43,7 @@ async def search_daum_blog(
             },
         )
 
+    raise_for_status(response)
     return response.json()
 
 
@@ -73,6 +75,7 @@ async def search_daum_cafe(
             },
         )
 
+    raise_for_status(response)
     return response.json()
 
 # https://developers.kakao.com/docs/latest/ko/local/dev-guide
@@ -103,6 +106,7 @@ async def search_kakao_local(
             },
         )
 
+    raise_for_status(response)
     return response.json()
 
 # https://developers.kakaomobility.com/docs/navi-api/directions/
@@ -184,4 +188,5 @@ async def search_car_directions(
             params=params,
         )
 
+    raise_for_status(response)
     return response.json()

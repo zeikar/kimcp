@@ -1,5 +1,6 @@
 import httpx
 from .config import SK_APP_KEY
+from .errors import raise_for_status
 
 # API endpoints
 API_ENDPOINT = "https://apis.openapi.sk.com"
@@ -50,6 +51,7 @@ async def search_transit_route_detail(
             },
         )
 
+    raise_for_status(response)
     result = response.json()
 
     # Remove specific fields from plan.legs to reduce response size
@@ -119,4 +121,5 @@ async def search_transit_route(
             },
         )
 
+    raise_for_status(response)
     return response.json()
