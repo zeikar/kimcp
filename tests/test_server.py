@@ -6,6 +6,7 @@ talk raw JSON-RPC to it, so these tests don't depend on the MCP SDK's client API
 import json
 import os
 import queue
+import socket
 import subprocess
 import sys
 import tempfile
@@ -155,6 +156,9 @@ def local_page():
 
     class Handler(BaseHTTPRequestHandler):
         def do_GET(self):
+            if self.path == "/missing":
+                self.send_error(404)
+                return
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
             self.send_header("Content-Length", str(len(body)))
@@ -190,9 +194,45 @@ def test_call_with_missing_argument_is_an_error(server):
 
 
 def test_get_webpage_content_strips_html(server, local_page):
-    result = server({}).call("get_webpage_content", {"link": local_page})["result"]
+    s = server({})
+    result = s.call("get_webpage_content", {"link": local_page})["result"]
     assert not result.get("isError")
     assert result["content"][0]["text"] == "안녕 KiMCP"
+    # The page text goes out once, not again as structuredContent.
+    assert "structuredContent" not in result
+    [tool] = s.request("tools/list")["result"]["tools"]
+    assert "outputSchema" not in tool
+
+
+# MCP SDK v2 hides the text of unexpected exceptions, so these failures must be ToolErrors.
+def test_http_error_reaches_the_model(server, local_page):
+    result = server({}).call("get_webpage_content", {"link": local_page + "missing"})["result"]
+    assert result["isError"]
+    assert "404 Not Found" in result["content"][0]["text"]
+
+
+def test_connection_error_reaches_the_model(server):
+    with socket.socket() as s:
+        s.bind(("127.0.0.1", 0))
+        closed_port = s.getsockname()[1]
+    result = server({}).call("get_webpage_content", {"link": f"http://127.0.0.1:{closed_port}/"})["result"]
+    assert result["isError"]
+    assert "ConnectError" in result["content"][0]["text"]
+
+
+def test_invalid_url_reaches_the_model(server):
+    result = server({}).call("get_webpage_content", {"link": "http://[::1"})["result"]
+    assert result["isError"]
+    assert "InvalidURL" in result["content"][0]["text"]
+
+
+def test_waypoint_limit_reaches_the_model(server):
+    result = server(DUMMY_KEYS).call("search_car_directions", {
+        "origin_x": 127.0, "origin_y": 37.5, "destination_x": 127.1, "destination_y": 37.6,
+        "waypoints": [{"x": 127.05, "y": 37.55}] * 6,
+    })["result"]
+    assert result["isError"]
+    assert "Maximum 5 waypoints" in result["content"][0]["text"]
 
 
 @pytest.mark.skipif(

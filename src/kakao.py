@@ -1,4 +1,5 @@
 import httpx
+from mcp.server.mcpserver.exceptions import ToolError
 from .config import KAKAO_REST_API_KEY
 
 # API endpoints
@@ -151,7 +152,7 @@ async def search_car_directions(
     waypoints_param = None
     if waypoints and len(waypoints) > 0:
         if len(waypoints) > 5:
-            raise ValueError("Maximum 5 waypoints allowed")
+            raise ToolError("Maximum 5 waypoints allowed")
 
         waypoint_strings = []
         for wp in waypoints:
