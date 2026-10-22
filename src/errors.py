@@ -3,6 +3,8 @@ import functools
 import httpx
 from mcp.server.mcpserver.exceptions import ToolError
 
+from . import config
+
 
 def http_errors_as_tool_errors(fn):
     """
@@ -29,7 +31,14 @@ def raise_for_status(response: httpx.Response) -> None:
     than the status line (e.g. Naver's "SE05", TMAP's "INVALID_API_KEY").
     """
     if response.is_error:
-        raise ToolError(
-            f"{response.status_code} {response.reason_phrase} for {response.url}: "
-            f"{response.text.strip()[:500]}"
-        )
+        # Mask before cutting, so a key split at the cut can't leak its first half.
+        body = mask_api_keys(response.text.strip())[:500]
+        raise ToolError(f"{response.status_code} {response.reason_phrase} for {response.url}: {body}")
+
+
+def mask_api_keys(text: str) -> str:
+    """Replace configured API keys with ***. Kakao, for one, echoes a malformed key in its error body."""
+    for key in (config.NAVER_CLIENT_ID, config.NAVER_CLIENT_SECRET, config.KAKAO_REST_API_KEY, config.SK_APP_KEY):
+        if key:
+            text = text.replace(key, "***")
+    return text

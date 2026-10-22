@@ -25,3 +25,26 @@ def test_long_error_body_is_cut():
 
 def test_success_status_passes():
     raise_for_status(response(200, "{}"))
+
+
+SECRET = "SECRETKEY1234567890"
+
+
+@pytest.fixture
+def kakao_key(monkeypatch):
+    monkeypatch.setattr("src.config.KAKAO_REST_API_KEY", SECRET)
+
+
+def test_api_key_echoed_in_error_body_is_masked(kakao_key):
+    # Kakao echoes a malformed key back in its 401 body.
+    body = f'{{"errorType": "AccessDeniedError", "message": "wrong appKey({SECRET}) format"}}'
+    with pytest.raises(ToolError) as e:
+        raise_for_status(response(401, body))
+    assert SECRET not in str(e.value)
+    assert "wrong appKey(***) format" in str(e.value)
+
+
+def test_api_key_cut_by_truncation_is_masked(kakao_key):
+    with pytest.raises(ToolError) as e:
+        raise_for_status(response(401, "x" * 495 + SECRET))
+    assert SECRET[:5] not in str(e.value)
